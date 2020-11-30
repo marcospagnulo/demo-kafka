@@ -11,6 +11,11 @@ import org.springframework.stereotype.Component;
 import io.confluent.ksql.api.client.Client;
 import io.confluent.ksql.api.client.ClientOptions;
 
+/**
+ * Contain and manage the ksql client
+ * 
+ * @author Marco Spagnulo
+ */
 @Component
 public class KSqlClient {
 
@@ -24,6 +29,9 @@ public class KSqlClient {
 	
 	Client client;
 
+	/**
+	 * Inizitialize the client
+	 */
 	@PostConstruct
 	public void init() {
 		ClientOptions options = ClientOptions.create().setHost(host).setPort(port);
@@ -34,6 +42,9 @@ public class KSqlClient {
 		return client;
 	}
 
+	/**
+	 * Execute a void query for keep the connection alive with a fixed rate
+	 */
 	@Scheduled(fixedRateString="${ksql.server.wakeUpRate}")
 	public void wakeUpConnection() {
 		logger.debug("Waking up ksql connection");

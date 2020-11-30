@@ -10,6 +10,11 @@ import org.springframework.stereotype.Component;
 import it.raffolab.demo.kafka.streaming.ksql.KSqlClient;
 import it.raffolab.demo.kafka.streaming.ksql.RowSubscriber;
 
+/**
+ * Check for update on a topic and create a subscription for manage updates
+ * 
+ * @author Marco Spagnulo
+ */
 @Component
 public class Consumer {
 
@@ -18,9 +23,11 @@ public class Consumer {
 	@Autowired
 	KSqlClient client;
 
+	/**
+	 * Create a streamed query on client and link this to a subscription 
+	 */
 	@PostConstruct
 	public void init() {
-		
 		client.getClient().streamQuery("SELECT * FROM riderLocations EMIT CHANGES;").thenAccept(streamedQueryResult -> {
 			logger.debug("Query has started. Query ID: " + streamedQueryResult.queryID());
 			RowSubscriber subscriber = new RowSubscriber();
