@@ -11,7 +11,7 @@
   },
   {
     "name": "ksql.server.wakeUpRate",
-    "type": "java.lang.String",
+    "type": "java.lang.Long",
     "description": "Rate of waking up sql query"
   }
 ]}
