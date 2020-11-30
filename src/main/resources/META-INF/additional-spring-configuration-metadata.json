@@ -1,0 +1,17 @@
+{"properties": [
+  {
+    "name": "ksql.server.host",
+    "type": "java.lang.String",
+    "description": "Ksql server address"
+  },
+  {
+    "name": "ksql.server.port",
+    "type": "java.lang.String",
+    "description": "KSql server port"
+  },
+  {
+    "name": "ksql.server.wakeUpRate",
+    "type": "java.lang.Long",
+    "description": "Rate of waking up sql query"
+  }
+]}
