@@ -8,14 +8,16 @@ import org.reactivestreams.Subscription;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * Subscription for manage the topic update
+ *  
+ * @author Marco Spagnuo
+ */
 public class RowSubscriber implements Subscriber<Row> {
 
 	private final Logger logger = LoggerFactory.getLogger(Consumer.class);
 
 	private Subscription subscription;
-
-	public RowSubscriber() {
-	}
 
 	@Override
 	public synchronized void onSubscribe(Subscription subscription) {

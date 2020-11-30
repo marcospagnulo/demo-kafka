@@ -9,7 +9,6 @@ import org.springframework.scheduling.annotation.EnableScheduling;
  * Run the spring boot application
  * 
  * @author Marco Spagnulo
- *
  */
 @SpringBootApplication
 @EnableScheduling
