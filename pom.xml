@@ -18,6 +18,7 @@
 	<properties>
 		<java.version>1.8</java.version>
 		<ksqldb.version>6.0.0</ksqldb.version>
+		<debezium.version>1.3.1.Final</debezium.version>
 	</properties>
 
 	<repositories>
@@ -45,32 +46,49 @@
 	</pluginRepositories>
 
 	<dependencies>
+
+		<!-- Spring -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
 			<optional>true</optional>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
 
+		<!-- Ksql -->
 		<dependency>
 			<groupId>io.confluent.ksql</groupId>
 			<artifactId>ksqldb-api-client</artifactId>
 			<version>${ksqldb.version}</version>
+		</dependency>
+
+		<!-- Debezium -->
+		<dependency>
+			<groupId>io.debezium</groupId>
+			<artifactId>debezium-api</artifactId>
+			<version>${debezium.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.debezium</groupId>
+			<artifactId>debezium-embedded</artifactId>
+			<version>${debezium.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.debezium</groupId>
+			<artifactId>debezium-connector-mysql</artifactId>
+			<version>${debezium.version}</version>
 		</dependency>
 	</dependencies>
 
