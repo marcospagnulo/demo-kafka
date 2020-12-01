@@ -1,4 +1,4 @@
-package it.raffolab.demo.kafka.streaming.ksql;
+package it.raffolab.demo.kafka.ksql;
 
 import javax.annotation.PostConstruct;
 
@@ -47,7 +47,6 @@ public class KSqlClient {
 	 */
 	@Scheduled(fixedRateString="${ksql.server.wakeUpRate}")
 	public void wakeUpConnection() {
-		logger.debug("Waking up ksql connection");
-		this.getClient().executeQuery("SELECT 1");
+		//this.getClient().executeQuery("SELECT 1;");
 	}
 }

@@ -1,4 +1,4 @@
-package it.raffolab.demo.kafka.streaming;
+package it.raffolab.demo.kafka.ksql;
 
 import javax.annotation.PostConstruct;
 
@@ -6,9 +6,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import it.raffolab.demo.kafka.streaming.ksql.KSqlClient;
-import it.raffolab.demo.kafka.streaming.ksql.RowSubscriber;
 
 /**
  * Check for update on a topic and create a subscription for manage updates

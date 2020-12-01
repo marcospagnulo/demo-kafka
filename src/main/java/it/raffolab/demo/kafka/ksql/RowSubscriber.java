@@ -1,7 +1,6 @@
-package it.raffolab.demo.kafka.streaming.ksql;
+package it.raffolab.demo.kafka.ksql;
 
 import io.confluent.ksql.api.client.Row;
-import it.raffolab.demo.kafka.streaming.Consumer;
 
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
