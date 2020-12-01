@@ -16,6 +16,10 @@
 		<appender-ref ref="Console" />
 	</logger>
 
+	<logger name="io.debezium" level="warn" additivity="false">
+		<appender-ref ref="Console" />
+	</logger>
+	
 	<!-- Application Logger -->
 	<logger name="it.raffolab.demo.kafka" level="debug" additivity="false">
 		<appender-ref ref="Console" />
