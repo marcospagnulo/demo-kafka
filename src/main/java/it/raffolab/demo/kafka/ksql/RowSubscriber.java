@@ -39,6 +39,7 @@ public class RowSubscriber implements Subscriber<Row> {
 	@Override
 	public synchronized void onError(Throwable t) {
 		logger.debug("Received an error: " + t);
+		t.printStackTrace();
 	}
 
 	@Override

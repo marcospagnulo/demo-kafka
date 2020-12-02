@@ -1,6 +1,7 @@
 package it.raffolab.demo.kafka.ksql;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,12 +35,20 @@ public class KSqlClient {
 	 */
 	@PostConstruct
 	public void init() {
+		logger.info("Create ksql connection");
 		ClientOptions options = ClientOptions.create().setHost(host).setPort(port);
 		this.client = Client.create(options);
 	}
 
+	@PreDestroy
 	public Client getClient() {
 		return client;
+	}
+
+	@PreDestroy
+	public void closeConnection() {
+		logger.info("Closing ksql connection");
+		client.close();
 	}
 
 	/**
@@ -47,6 +56,6 @@ public class KSqlClient {
 	 */
 	@Scheduled(fixedRateString="${ksql.server.wakeUpRate}")
 	public void wakeUpConnection() {
-		//this.getClient().executeQuery("SELECT 1;");
+		
 	}
 }
