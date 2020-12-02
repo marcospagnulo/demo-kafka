@@ -13,5 +13,80 @@
     "name": "ksql.server.wakeUpRate",
     "type": "java.lang.Long",
     "description": "Rate of waking up sql query"
+  },
+  {
+    "name": "debezium.name",
+    "type": "java.lang.String",
+    "description": "A description for 'debezium.name'"
+  },
+  {
+    "name": "debezium.connector.class",
+    "type": "java.lang.String",
+    "description": "A description for 'debezium.connector.class'"
+  },
+  {
+    "name": "debezium.offset.storage.class",
+    "type": "java.lang.String",
+    "description": "A description for 'debezium.offset.storage.class'"
+  },
+  {
+    "name": "debezium.offset.storage.file.filename",
+    "type": "java.lang.String",
+    "description": "A description for 'debezium.offset.storage.file.filename'"
+  },
+  {
+    "name": "debezium.offset.flush.interval.ms",
+    "type": "java.lang.String",
+    "description": "A description for 'debezium.offset.flush.interval.ms'"
+  },
+  {
+    "name": "debezium.offset.flush.interval.ms",
+    "type": "java.lang.String",
+    "description": "A description for 'debezium.offset.flush.interval.ms'"
+  },
+  {
+    "name": "debezium.database.hostname",
+    "type": "java.lang.String",
+    "description": "A description for 'debezium.database.hostname'"
+  },
+  {
+    "name": "debezium.database.user",
+    "type": "java.lang.String",
+    "description": "A description for 'debezium.database.user'"
+  },
+  {
+    "name": "debezium.database.table.include.list",
+    "type": "java.lang.String",
+    "description": "A description for 'debezium.database.table.include.list'"
+  },
+  {
+    "name": "debezium.database.port",
+    "type": "java.lang.String",
+    "description": "A description for 'debezium.database.port'"
+  },
+  {
+    "name": "debezium.database.password",
+    "type": "java.lang.String",
+    "description": "A description for 'debezium.database.password'"
+  },
+  {
+    "name": "debezium.database.server.id",
+    "type": "java.lang.String",
+    "description": "A description for 'debezium.database.server.id'"
+  },
+  {
+    "name": "debezium.database.server.name",
+    "type": "java.lang.String",
+    "description": "A description for 'debezium.database.server.name'"
+  },
+  {
+    "name": "debezium.database.history.class",
+    "type": "java.lang.String",
+    "description": "A description for 'debezium.database.historyClass'"
+  },
+  {
+    "name": "debezium.database.history.file.filename",
+    "type": "java.lang.String",
+    "description": "A description for 'debezium.database.history.file.filename'"
   }
 ]}

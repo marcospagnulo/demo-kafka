@@ -32,7 +32,7 @@ public class CDCListener {
 	@Value("${debezium.connector.class}")
 	private String connectorClass;
 
-	@Value("${debezium.offset.storage}")
+	@Value("${debezium.offset.storage.class}")
 	private String storageClass;
 
 	@Value("${debezium.offset.storage.file.filename}")
@@ -62,7 +62,7 @@ public class CDCListener {
 	@Value("${debezium.database.server.name}")
 	private String serverName;
 	
-	@Value("${debezium.database.history}")
+	@Value("${debezium.database.history.class}")
 	private String databaseHistoryClass;
 	
 	@Value("${debezium.database.history.file.filename}")
