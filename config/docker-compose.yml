@@ -51,19 +51,5 @@ services:
       - ksqldb-server
     entrypoint: /bin/sh
     tty: true
-
-  mysql:
-    image: mysql
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-    ports:
-      - "3309:3306"
-    
-  phpmyadmin:
-    image: phpmyadmin/phpmyadmin
-    environment:
-      MYSQL_ROOT_PASSWOR: root
-      PMA_HOST: mysql
-    ports:
-      - 8081:80
+      
   

@@ -17,12 +17,112 @@
   {
     "name": "debezium.name",
     "type": "java.lang.String",
-    "description": "A description for 'debezium.name'"
+    "description": "Unique name for the connector. Attempting to register again with the same name will fail. (This property is required by all Kafka Connect connectors.)"
   },
   {
     "name": "debezium.connector.class",
     "type": "java.lang.String",
-    "description": "A description for 'debezium.connector.class'"
+    "description": "The name of the Java class for the connector. Always use a value of io.debezium​.connector.oracle.OracleConnector for the Oracle connector"
+  },
+  {
+    "name": "debezium.tasks.max",
+    "type": "java.lang.String",
+    "description": "The maximum number of tasks that should be created for this connector. The Oracle connector always uses a single task and therefore does not use this value, so the default is always acceptable."
+  },
+  {
+    "name": "debezium.database.hostname",
+    "type": "java.lang.String",
+    "description": "IP address or hostname of the Oracle database server."
+  },
+  {
+    "name": "debezium.database.user",
+    "type": "java.lang.String",
+    "description": "Name of the user to use when connecting to the Oracle database server."
+  },
+  {
+    "name": "debezium.database.port",
+    "type": "java.lang.String",
+    "description": "Integer port number of the Oracle database server."
+  },
+  {
+    "name": "debezium.database.password",
+    "type": "java.lang.String",
+    "description": "Password to use when connecting to the Oracle database server."
+  },
+  {
+    "name": "debezium.database.server.name",
+    "type": "java.lang.String",
+    "description": "Logical name that identifies and provides a namespace for the particular Oracle database server being monitored. The logical name should be unique across all other connectors, since it is used as a prefix for all Kafka topic names emanating from this connector. Only alphanumeric characters and underscores should be used."
+  },
+  {
+    "name": "debezium.database.connection.adapter",
+    "type": "java.lang.String",
+    "description": "The adapter implementation to use. xstream uses the Oracle XStreams API. logminer uses the native Oracle LogMiner API."
+  },
+  {
+    "name": "debezium.database.history.class",
+    "type": "java.lang.String",
+    "description": "A description for 'debezium.database.historyClass'"
+  },
+  {
+    "name": "debezium.database.history.file.filename",
+    "type": "java.lang.String",
+    "description": "A description for 'debezium.database.history.file.filename'"
+  },
+  {
+    "name": "debezium.db_type",
+    "type": "java.lang.String",
+    "description": "A description for 'debezium.db_type'"
+  },
+  {
+    "name": "debezium.database.dbname",
+    "type": "java.lang.String",
+    "description": "Name of the database to connect to. Must be the CDB name when working with the CDB + PDB model."
+  },
+  {
+    "name": "debezium.database.pdb.name",
+    "type": "java.lang.String",
+    "description": "Name of the PDB to connect to, when working with the CDB + PDB model."
+  },
+  {
+    "name": "debezium.database.oracle.version",
+    "type": "java.lang.String",
+    "description": "A description for 'debezium.database.oracle.version'"
+  },
+  {
+    "name": "debezium.database.tablename.case.insensitive",
+    "type": "java.lang.String",
+    "description": "A description for 'debezium.database.tablename.case.insensitive'"
+  },
+  {
+    "name": "debezium.table.include.list",
+    "type": "java.lang.String",
+    "description": "An optional comma-separated list of regular expressions that match fully-qualified table identifiers for tables to be monitored; any table not included in the include list will be excluded from monitoring. Each identifier is of the form schemaName.tableName. By default the connector will monitor every non-system table in each monitored database. May not be used with table.exclude.list."
+  },
+  {
+    "name": "debezium.database.history.kafka.bootstrap.servers",
+    "type": "java.lang.String",
+    "description": "A description for 'debezium.database.history.kafka.bootstrap.servers'"
+  },
+  {
+    "name": "debezium.database.history.kafka.topic",
+    "type": "java.lang.String",
+    "description": "A description for 'debezium.database.history.kafka.topic'"
+  },
+  {
+    "name": "debezium.database.history.skip.unparseable.ddl",
+    "type": "java.lang.String",
+    "description": "A description for 'debezium.database.history.skip.unparseable.ddl'"
+  },
+  {
+    "name": "debezium.include.schema.changes",
+    "type": "java.lang.String",
+    "description": "A description for 'debezium.include.schema.changes'"
+  },
+  {
+    "name": "debezium.errors.log.enable",
+    "type": "java.lang.String",
+    "description": "A description for 'debezium.errors.log.enable'"
   },
   {
     "name": "debezium.offset.storage.class",
@@ -44,49 +144,4 @@
     "type": "java.lang.String",
     "description": "A description for 'debezium.offset.flush.interval.ms'"
   },
-  {
-    "name": "debezium.database.hostname",
-    "type": "java.lang.String",
-    "description": "A description for 'debezium.database.hostname'"
-  },
-  {
-    "name": "debezium.database.user",
-    "type": "java.lang.String",
-    "description": "A description for 'debezium.database.user'"
-  },
-  {
-    "name": "debezium.database.table.include.list",
-    "type": "java.lang.String",
-    "description": "A description for 'debezium.database.table.include.list'"
-  },
-  {
-    "name": "debezium.database.port",
-    "type": "java.lang.String",
-    "description": "A description for 'debezium.database.port'"
-  },
-  {
-    "name": "debezium.database.password",
-    "type": "java.lang.String",
-    "description": "A description for 'debezium.database.password'"
-  },
-  {
-    "name": "debezium.database.server.id",
-    "type": "java.lang.String",
-    "description": "A description for 'debezium.database.server.id'"
-  },
-  {
-    "name": "debezium.database.server.name",
-    "type": "java.lang.String",
-    "description": "A description for 'debezium.database.server.name'"
-  },
-  {
-    "name": "debezium.database.history.class",
-    "type": "java.lang.String",
-    "description": "A description for 'debezium.database.historyClass'"
-  },
-  {
-    "name": "debezium.database.history.file.filename",
-    "type": "java.lang.String",
-    "description": "A description for 'debezium.database.history.file.filename'"
-  }
 ]}

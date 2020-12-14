@@ -16,7 +16,7 @@
 		<appender-ref ref="Console" />
 	</logger>
 
-	<logger name="io.debezium" level="warn" additivity="false">
+	<logger name="io.debezium" level="info" additivity="false">
 		<appender-ref ref="Console" />
 	</logger>
 	

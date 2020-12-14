@@ -1,6 +1,7 @@
 package it.raffolab.demo.kafka.ksql;
 
 import io.confluent.ksql.api.client.Row;
+import io.vertx.core.VertxException;
 
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
@@ -39,7 +40,9 @@ public class RowSubscriber implements Subscriber<Row> {
 	@Override
 	public synchronized void onError(Throwable t) {
 		logger.debug("Received an error: " + t);
-		t.printStackTrace();
+		if(t instanceof VertxException) {
+			logger.debug("Connection was closed, ");
+		}
 	}
 
 	@Override

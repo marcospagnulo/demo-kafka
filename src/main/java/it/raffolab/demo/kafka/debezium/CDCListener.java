@@ -29,18 +29,27 @@ public class CDCListener {
 	@Value("${debezium.name}")
 	private String engineName;
 
+	@Value("${debezium.db_type}")
+	private String dbType;
+
 	@Value("${debezium.connector.class}")
 	private String connectorClass;
 
-	@Value("${debezium.offset.storage.class}")
-	private String storageClass;
+	@Value("${debezium.database.connection.adapter}")
+	private String connectionAdapter;
 
-	@Value("${debezium.offset.storage.file.filename}")
-	private String storageFileName;
-
-	@Value("${debezium.offset.flush.interval.ms}")
-	private String flushInterval;
-
+	@Value("${debezium.database.schema}")
+	private String schema;
+	
+	@Value("${debezium.tasks.max}")
+	private String tasksMax;
+	
+	@Value("${debezium.database.server.name}")
+	private String serverName;
+	
+	@Value("${debezium.database.tablename.case.insensitive}")
+	private String tableNameCaseInsensitive;
+	
 	@Value("${debezium.database.hostname}")
 	private String hostname;
 	
@@ -53,20 +62,41 @@ public class CDCListener {
 	@Value("${debezium.database.password}")
 	private String password;
 	
-	@Value("${debezium.database.table.include.list}")
+	@Value("${debezium.database.dbname}")
+	private String dbName;
+	
+	@Value("${debezium.database.pdb.name}")
+	private String pdbName;
+	
+	@Value("${debezium.database.out.server.name}")
+	private String outServerName;
+	
+	@Value("${debezium.database.history.kafka.bootstrap.servers}")
+	private String kafkaBootstrapServers;
+	
+	@Value("${debezium.database.history.kafka.topic}")
+	private String kafkaTopic;
+	
+	@Value("${debezium.database.history.skip.unparseable.ddl}")
+	private String skipUnparseableDdl;
+	
+	@Value("${debezium.include.schema.changes}")
+	private String includeSchemaChanges;
+	
+	@Value("${debezium.table.include.list}")
 	private String tableIncludeList;
 	
-	@Value("${debezium.database.server.id}")
-	private String serverId;
-	
-	@Value("${debezium.database.server.name}")
-	private String serverName;
-	
-	@Value("${debezium.database.history.class}")
-	private String databaseHistoryClass;
-	
-	@Value("${debezium.database.history.file.filename}")
-	private String databaseHistoryFile;
+	@Value("${debezium.errors.log.enable}")
+	private String errorsLogEnable;
+
+	@Value("${debezium.offset.storage.class}")
+	private String storageClass;
+
+	@Value("${debezium.offset.storage.file.filename}")
+	private String storageFileName;
+
+	@Value("${debezium.offset.flush.interval.ms}")
+	private String flushInterval;
 	
 	private final Logger logger = LoggerFactory.getLogger(CDCListener.class);
 	
@@ -87,18 +117,31 @@ public class CDCListener {
     	Properties props = new Properties();
     	props.setProperty("name", engineName);
     	props.setProperty("connector.class", connectorClass);
-        props.setProperty("offset.storage", storageClass);
-        props.setProperty("offset.storage.file.filename", storageFileName);
-        props.setProperty("offset.flush.interval.ms", flushInterval);
+    	props.setProperty("database.connection.adapter", connectionAdapter);
     	props.setProperty("database.hostname", hostname);
     	props.setProperty("database.port", port);
     	props.setProperty("database.user", user);
     	props.setProperty("database.password", password);
+    	props.setProperty("database.history.kafka.bootstrap.servers", kafkaBootstrapServers);
+    	props.setProperty("database.history.kafka.topic", kafkaTopic);
+    	props.setProperty("database.history.skip.unparseable.ddl", skipUnparseableDdl);
+    	props.setProperty("include.schema.changes", includeSchemaChanges);
     	props.setProperty("table.include.list", tableIncludeList);
-    	props.setProperty("database.server.id", serverId);
+    	props.setProperty("errors.log.enable", errorsLogEnable);
+    	props.setProperty("offset.storage", storageClass);
+    	props.setProperty("offset.storage.file.filename", storageFileName);
+    	props.setProperty("offset.flush.interval.ms", flushInterval);
+    	
+    	// Needed props for oracle
+    	props.setProperty("database.schema", schema);
+    	props.setProperty("db_type", dbType);
+    	props.setProperty("tasks.max", tasksMax);
     	props.setProperty("database.server.name", serverName);
-    	props.setProperty("database.history", databaseHistoryClass);
-    	props.setProperty("database.history.file.filename", databaseHistoryFile);
+    	props.setProperty("database.tablename.case.insensitive", tableNameCaseInsensitive);
+    	props.setProperty("database.dbname", dbName);
+    	props.setProperty("database.pdb.name", pdbName);
+    	props.setProperty("database.out.server.name", outServerName);
+
     	
     	this.engine = DebeziumEngine.create(Json.class)
     	        .using(props)

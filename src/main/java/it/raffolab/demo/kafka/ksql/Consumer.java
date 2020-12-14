@@ -31,7 +31,6 @@ public class Consumer {
 			streamedQueryResult.subscribe(subscriber);
 		}).exceptionally(e -> {
 			logger.debug("Request failed: " + e);
-			e.printStackTrace();
 			return null;
 		});
 	}
